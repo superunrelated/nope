@@ -1,0 +1,18 @@
+
+/* Listing page */
+
+/* Item page */
+
+/* Remove spammy alerts*/
+
+.sr_vr_intent--banner, 
+.pending_review_banner_sr, 
+.results-meta, 
+.inline-feedback, 
+.fe_banner, 
+.onview-animate, 
+.bui-alert, 
+.hp_cs_back_to_search, 
+.bpg_holder_light_block {
+  display:none !important;
+}

@@ -1,0 +1,21 @@
+
+
+/* Listing page */
+
+/* Item page */
+
+.nope-item-label {
+  top: 150px;
+  height: 100%;
+}
+
+/* Remove spammy alerts*/
+
+.compression-messaging,
+.reward-banner,
+.welcome-rewards-container,
+.find-perfect-property,
+.urgency,
+.widget-urgency {
+  display:none !important;
+}

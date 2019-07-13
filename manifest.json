@@ -1,0 +1,39 @@
+{
+  "name": "Nope",
+  "version": "1.0",
+  "description": "A chrome extension to hide search results you dont want to see again.",
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.booking.com/*",
+        "https://*.hotels.com/*"
+      ],
+      "css": ["src/css/content.css"],
+      "js": ["src/js/content_loader.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["src/js/background.js"],
+    "persistent": false
+  },
+
+  "web_accessible_resources": [
+    "images/*",
+    "src/js/*",
+    "src/html/*",
+    "src/css/*"
+  ],
+
+  "options_page": "src/html/options.html",
+
+  "icons": {
+    "16": "images/icon_16.png",
+    "32": "images/icon_32.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
+  },
+  "manifest_version": 2
+}
