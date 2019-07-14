@@ -12,6 +12,7 @@ export function main() {
 
   for (let key in settings) {
     if (hostname.indexOf(key) != -1){
+      // TODO: move addCss, store.init to after there is a page match. No need to do this on other pages on the site... doh!
       addCss(key);
       store.init(key)
         .then((result) => {
