@@ -6,9 +6,9 @@ class ItemPage {
     console.log("This is the item page");
     this.settings = settings;
     this.store = store;
-    this.container = document.querySelectorAll(this.settings.itemPageContainerSelector)[0];
+    this.container = document.querySelectorAll(this.settings.itemPageContainer)[0];
     this.container.classList.add("nope-item-container");
-    this.id = document.querySelector(this.settings.itemPageIdSelector).value;
+    this.id = document.querySelector(this.settings.itemPageId).value;
     this.icon = undefined;
     this.label = undefined;
     this.getTabId()
@@ -68,7 +68,7 @@ class ItemPage {
   }
 
   hideClickHandler(){
-    const titleNode = this.container.querySelector(this.settings.itemPageTitleSelector);
+    const titleNode = this.container.querySelector(this.settings.itemPageTitle);
     const reducer = (a, b) => { return a + (b.nodeType === 3 ? b.textContent : ''); }
     const itemName = [].reduce.call(titleNode.childNodes, reducer, '');
 
