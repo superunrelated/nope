@@ -8,8 +8,11 @@ Work in progress: Or, you have actually gone to see a movie in the cinema. How r
 If this is you, here is my attempt to solve this. Currently Booking.com and Hotels.com is supported. More is on its way... maybe. 
 
 ## Creating page specific settings
-### Add the page url to the content_scripts.matches in ./manifest.json
-### Add site specific settings to ./src/js/settings.js
+- Add the page url to the content_scripts.matches in ./manifest.json
+- Add settings to ./src/js/settings.js
+- Add css file to ./src/css/[domain].css
+
+## Settings.js
 
 ```javascript
   "booking.com": {
@@ -62,8 +65,6 @@ Some sites does a huge number of little changes to the page after modification t
 #### closeItemPage
 When the user hides an item on it's detail page choose if the page/tab should close. This makes sense on sites that opens every item detail page in a new tab.
 
-
-### Add site specific css file to ./src/css/[domain].css
 
 ## Potential improvements: 
 - Check out the history object, and/or mark the :visited links better. Why the hell does not anyone use this browser feature anymore!?
