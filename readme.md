@@ -42,7 +42,9 @@ This query selector identifies the main search listing container html node. This
 This query selector selects the list items to modify and hide, and multiple items is expected. 
 
 #### listingPageItemId 
-When an item is hidden, this is the selector that finds the element id within the item. The ID is used for identifying the list item and applying the correct state. This is usually a data field, or it can be a part of the url to the items details page, or as a hidden input element as part of a form. 
+When an item is hidden, this is the selector that finds the element id within the item. The ID is used for identifying the list item and applying the correct state. This is the JavaScript version of the data node containing the id on the listingPageItem. The value is obtained like this: htmlNode.dataset[listingPageItemId];
+
+This is usually a data field, or it can be a part of the url to the items details page, or as a hidden input element as part of a form. 
 
 #### listingPageTitle
 When an item is hidden, this is the selector that finds the elements title. The title is the textContent of this html node. The title is used for presenting all hidden items on the Extensions Option page. 
