@@ -8,7 +8,7 @@ class ItemPage {
     this.store = store;
     this.container = document.querySelectorAll(this.settings.itemPageContainer)[0];
     this.container.classList.add("nope-item-container");
-    this.id = document.querySelector(this.settings.itemPageId).value;
+    this.id = this.getSetting(this.settings.itemPageId, this.container);
     this.icon = undefined;
     this.label = undefined;
     this.getTabId()
@@ -20,6 +20,14 @@ class ItemPage {
       console.log("change handler", list);
       this.updatePage();
     });
+  }
+
+  getSetting(selector, htmlNode){
+    if (typeof selector === "function"){
+      return selector(htmlNode);
+    } else {
+      return document.querySelector(selector).value;
+    }
   }
 
   updatePage (){

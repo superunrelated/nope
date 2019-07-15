@@ -1,7 +1,85 @@
-
 /* Listing page */
 
+.nope-listing-item {
+  position: relative;
+}
+
+.nope-listing-icon {
+  position: absolute;
+  left: 100%;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 12px 10px;
+}
+
+.nope-listing-label {
+  cursor: pointer;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.nope-listing-hidden {
+  background-color: #EEEEEE !important;
+  color: #FFFFFF !important;
+  text-align: center !important;
+  display: block !important;
+  margin: 5px 0px !important;
+  padding: 0 !important;
+  border: solid 1px #DDDDDD !important;
+  box-shadow: none !important;
+}
+
 /* Item page */
+
+.nope-item-container {
+  position: relative;
+}
+
+.nope-item-icon {
+  position: absolute;
+  left: 100%;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  margin: 35px 10px 0 0;
+  width: 100px;
+  height: 100px;
+}
+
+.nope-item-label {
+  position: absolute;
+  left: 0;
+  top: 142px;
+  width: 100%;
+  height: 311px;
+  padding: 20px 0;
+  margin: 0;
+  cursor: pointer;
+  background-color: white;
+  text-align: center;
+  line-height: 300px;
+}
+
+.nope-item-container > .nope-item-label {
+  display: none;
+}
+
+.nope-item-hidden > * {
+  opacity: 0.2
+}
+
+.nope-item-hidden > .nope-item-icon {
+  display: none;
+}
+
+.nope-item-hidden > .nope-item-label {
+  opacity: 1;
+  display: block;
+}
 
 /* Remove spammy alerts*/
 

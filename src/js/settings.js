@@ -30,4 +30,29 @@ export default {
     "mutationLimit": 1,
     "closeItemPage": false,
   }, 
+
+  "play.google.com": {
+    "listingPage": "/store",
+    "listingPageContainer": ".ZmHEEd",
+    "listingPageItem": ".uMConb",
+    "listingPageItemId": function(htmlNode){
+      const button = htmlNode.querySelector("button[data-item-id]");
+      const id = button.dataset["itemId"];
+      return id;
+    },
+    "listingPageTitle": ".WsMG1c",
+
+    "itemPage": "/store/movies/details/",
+    "itemPageContainer": ".JNury",
+    "itemPageTitle": "h1 span",
+    "itemPageId": function(){
+      const url = new URL(window.location);
+      const id = url.searchParams.get("id");
+      return id;
+    },
+    "mutationLimit": 1,
+    "closeItemPage": false,
+  }, 
 };
+
+

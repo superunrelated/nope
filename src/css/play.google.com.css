@@ -1,0 +1,35 @@
+
+
+/* Listing page */
+
+.nope-listing-item {
+  /*display: block;*/
+}
+
+.nope-listing-hidden {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.nope-listing-label {
+
+}
+
+.nope-listing-icon {
+  top: 10px;
+  left: calc(100% - 62px);
+}
+
+
+/* Item page */
+
+.nope-item-label {
+/*  top: 150px;
+  height: 100%;*/
+}
+
+/* Remove spammy alerts*/
+
+.foo {
+  display:none !important;
+}

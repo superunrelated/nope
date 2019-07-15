@@ -16,10 +16,10 @@ export function main() {
       addCss(key);
       store.init(key)
         .then((result) => {
-          if (pathname.indexOf(settings[key].listingPage) != -1){
-            const listingPage = new ListingPage(settings[key], store);
-          } else if(pathname.indexOf(settings[key].itemPage) != -1) {
+          if (pathname.indexOf(settings[key].itemPage) != -1){
             const itemPage = new ItemPage(settings[key], store);
+          } else if(pathname.indexOf(settings[key].listingPage) != -1) {
+            const listingPage = new ListingPage(settings[key], store);
           } else {
             console.log("key is not recognized");
           }

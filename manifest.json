@@ -8,7 +8,8 @@
     {
       "matches": [
         "https://*.booking.com/*",
-        "https://*.hotels.com/*"
+        "https://*.hotels.com/*",
+        "https://play.google.com/*"
       ],
       "css": ["src/css/content.css"],
       "js": ["src/js/content_loader.js"]

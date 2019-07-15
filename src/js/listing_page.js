@@ -2,7 +2,7 @@ import copy from './copy.js';
 
 class ListingPage {
 
-  constructor (settings, store){
+  constructor(settings, store){
     this.settings = settings;
     this.store = store;
     this.container = document.querySelectorAll(this.settings.listingPageContainer)[0];
@@ -16,7 +16,7 @@ class ListingPage {
 
   // Updating
 
-  createIcon (){
+  createIcon(){
     if (!this.icon){
       this.icon = document.createElement("div");
       this.icon.classList.add("nope-listing-icon");
@@ -27,8 +27,18 @@ class ListingPage {
     }
     return this.icon.cloneNode(true);
   }
+
+  createLabel(){
+    if (!this.label){
+      this.label = document.createElement("div");
+      this.label.classList.add("nope-listing-label");
+      let textnode = document.createTextNode(copy.hiddenMessage);
+      this.label.appendChild(textnode);
+    }
+    return this.label.cloneNode(true);
+  }
   
-  addIcons (){
+  addIcons(){
     const htmlNodes = this.getHtmlNodes(document, this.settings.listingPageItem);
     console.log("htmlNodes", htmlNodes);
     for (let htmlNode of htmlNodes) {
@@ -44,7 +54,7 @@ class ListingPage {
     }
   }
 
-  hideItemClickHandler (htmlNode){
+  hideItemClickHandler(htmlNode){
     const id = this.getId(htmlNode);
     console.log("htmlNode", htmlNode);
     const itemNameNode = htmlNode.querySelector(this.settings.listingPageTitle);
@@ -55,7 +65,7 @@ class ListingPage {
       });
   }
 
-  updatePage (){
+  updatePage(){
     this.disconnect();
     this.addIcons();
     const list = this.store.getList();
@@ -69,7 +79,7 @@ class ListingPage {
     this.observe();
   }
 
-  getHtmlNodes(htmlNode, ){
+  getHtmlNodes(htmlNode, selector){
     if (!htmlNode){
       htmlNode = document;
     }
@@ -77,7 +87,7 @@ class ListingPage {
     if (typeof selector === "function"){
       return selector(htmlNode);
     } else {
-      return htmlNode.querySelectorAll();
+      return htmlNode.querySelectorAll(selector);
     }
   }
 
@@ -105,30 +115,29 @@ class ListingPage {
 
   hideItem(htmlNode){
     let id = this.getId(htmlNode);
-    htmlNode.classList.add('nope-listing-hidden');
+    if (!htmlNode.classList.contains('nope-listing-hidden')){
+      htmlNode.classList.add('nope-listing-hidden');
 
-    for (let childNode of htmlNode.children) {
-      childNode.style.display = "none";
+      for (let childNode of htmlNode.children) {
+        childNode.style.display = "none";
+      }
+
+      let htmlLabel = this.createLabel();
+      htmlLabel.addEventListener("click", () => {
+        this.store.removeItem(id)
+          .then( (list) => {
+            this.showItem(htmlNode);
+          });
+
+      }, false);
+
+      htmlNode.appendChild(htmlLabel);
     }
-
-    let htmlLabel = document.createElement("div");
-    htmlLabel.classList.add("nope-listing-label");
-    let textnode = document.createTextNode(copy.hiddenMessage);
-    htmlLabel.appendChild(textnode);
-    htmlLabel.addEventListener("click", () => {
-      this.store.removeItem(id)
-        .then( (list) => {
-          this.showItem(htmlNode);
-        });
-
-    }, false);
-
-    htmlNode.appendChild(htmlLabel);
   }
 
   // MutationObserver
 
-  observe (){
+  observe(){
     if (!this.observer){
       this.observer = new MutationObserver((mutationsList, observer) => {
         if (mutationsList.length >= this.settings.mutationLimit){
@@ -144,7 +153,7 @@ class ListingPage {
     this.observer.observe(this.container, config);
   }
 
-  disconnect (){
+  disconnect(){
     if (this.observer){
       this.observer.disconnect();
     }
