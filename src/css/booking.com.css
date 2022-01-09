@@ -22,13 +22,13 @@
 }
 
 .nope-listing-hidden {
-  background-color: #EEEEEE !important;
-  color: #FFFFFF !important;
+  background-color: #eeeeee !important;
+  color: #ffffff !important;
   text-align: center !important;
   display: block !important;
   margin: 5px 0px !important;
   padding: 0 !important;
-  border: solid 1px #DDDDDD !important;
+  border: solid 1px #dddddd !important;
   box-shadow: none !important;
 }
 
@@ -52,28 +52,20 @@
 
 .nope-item-label {
   position: absolute;
-  left: 0;
-  top: 142px;
-  width: 100%;
-  height: 311px;
-  padding: 20px 0;
-  margin: 0;
-  cursor: pointer;
-  background-color: white;
-  text-align: center;
-  line-height: 300px;
 }
 
 .nope-item-container > .nope-item-label {
-  display: none;
+  opacity: 0.2;
 }
 
 .nope-item-hidden > * {
-  opacity: 0.2
+  opacity: 0.2;
 }
 
 .nope-item-hidden > .nope-item-icon {
-  display: none;
+  display: block;
+  opacity: 0.2;
+  transform: scaleY(-100%);
 }
 
 .nope-item-hidden > .nope-item-label {
@@ -82,15 +74,6 @@
 }
 
 /* Remove spammy alerts*/
-
-.sr_vr_intent--banner, 
-.pending_review_banner_sr, 
-.results-meta, 
-.inline-feedback, 
-.fe_banner, 
-.onview-animate, 
-.bui-alert, 
-.hp_cs_back_to_search, 
-.bpg_holder_light_block {
-  display:none !important;
+div[role="none"] {
+  display: none !important;
 }

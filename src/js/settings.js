@@ -1,15 +1,22 @@
 export default {
   "booking.com": {
-    "listingPage": "/searchresults",
-    "listingPageContainer": "#right",
-    "listingPageItem": "[data-hotelid], [data-marker-id]",
-    "listingPageItemId": "hotelid",
-    "listingPageTitle": ".sr-hotel__name",
-
+    "listingPage": "/searchresults", // OK
+    "listingPageContainer": "#search_results_table", // OK
+    "listingPageItem": "[data-testid='property-card']", // OK
+    "listingPageItemId": function(htmlNode){
+      const anchor = htmlNode.querySelector("a");
+      const id = anchor.href.split("?")[0].replace("https://www.booking.com/", "");
+      return id;
+    },
+    "listingPageTitle": "[data-testid='title']",
+    
     "itemPage": "/hotel",
-    "itemPageContainer": "#right",
+    "itemPageContainer": ".k2-hp--gallery-header.bui-grid__column.bui-grid__column-9",
     "itemPageTitle": "#hp_hotel_name",
-    "itemPageId": "input[name=hotel_id]", 
+    "itemPageId": function(htmlNode){
+      const id = window.location.href.split("?")[0].replace("https://www.booking.com/", "");
+      return id;
+    },
 
     "mutationLimit": 10,
     "closeItemPage": false,

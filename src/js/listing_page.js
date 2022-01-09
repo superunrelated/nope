@@ -93,11 +93,7 @@ class ListingPage {
 
   getId(htmlNode){
     const selector = this.settings.listingPageItemId;
-    if (typeof selector === "function"){
-      return selector(htmlNode);
-    } else {
-      return htmlNode.dataset[selector];
-    }
+    return selector(htmlNode);
   }
 
   showItem(htmlNode){
